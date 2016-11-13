@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Loading Path to static Files -->
+    {% load staticfiles %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{%block title%} {% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'employee/css/bootstrap.css'  %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'employee/css/style.css'  %}" rel="stylesheet">
+    <link href="{% static 'employee/css/font-awesome.min.css'  %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'employee:home' %}">MONITER.</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="main-nav nav navbar-nav">
+            <li {%block index%} {% endblock %}><a href="{% url 'employee:home' %}">HOME</a></li>
+            <li {%block about%} {% endblock %}><a href="{% url 'employee:about' %}">ABOUT</a></li>
+            <li><a class="cd-signin" href="#0">LOG IN</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- *****************************************************************************************************************
+	 Log In
+	 ***************************************************************************************************************** -->
+    <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher ">
+				<li><a href="#0"><font size="5">LOG IN</font></a></li>
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form"  >
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="signin-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="Password">
+						<a href="#0" class="hide-password">Hide</a>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me"><font size="2.5">Remember me</font></label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="LOG IN" onclick="location.href='http://127.0.0.1:8000/Moniter/dashboard/'">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0"><font size="3">Forgot your password?</font></a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-login -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message"><font size="3">Lost your password? Please enter your email address. You will receive a link to create a new password.</font></p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0"><font size="3">Back to log-in</font></a></p>
+			</div> <!-- cd-reset-password -->
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
+
+	{% block body%}{% endblock%}
+
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+	 	<div class="container">
+		 	<div class="row">
+		 		<div class="col-lg-4">
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>This creed has been created in 1440s and since then they are developing new froms of Technology. </p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Social Links</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="#"><i class="fa fa-dribbble"></i></a>
+		 				<a href="#"><i class="fa fa-facebook"></i></a>
+		 				<a href="#"><i class="fa fa-twitter"></i></a>
+		 				<a href="#"><i class="fa fa-instagram"></i></a>
+		 				<a href="#"><i class="fa fa-tumblr"></i></a>
+		 			</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Our Bunker</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				666, Govind Bhavan,<br/>
+		 				IIT Roorkee,<br/>
+		 				Uttrakhand.<br/>
+		 			</p>
+		 		</div>
+
+		 	</div><! --/row -->
+	 	</div><! --/container -->
+	 </div><! --/footerwrap -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="{% static 'employee/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'employee/js/retina-1.1.0.js' %}"></script>
+	<script src="{% static 'employee/js/jquery.hoverdir.js' %}"></script>
+	<script src="{% static 'employee/js/jquery.hoverex.min.js' %}"></script>
+	<script src="{% static 'employee/js/jquery.prettyPhoto.js' %}"></script>
+  	<script src="{% static 'employee/js/jquery.isotope.min.js' %}"></script>
+  	<script src="{% static 'employee/js/custom.js' %}"></script>
+  	<script src="{% static 'employee/js/main.js' %}"></script>
+
+  	{% block script %}{% endblock %}
+
+  </body>
+</html>

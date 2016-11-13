@@ -1,0 +1,46 @@
+{% extends 'employee/base.html' %}
+
+{% load staticfiles %}
+
+{%block title%} About Us {% endblock %}
+
+{%block about%} class="active" {% endblock %}
+
+{% block body%}
+<!-- *****************************************************************************************************************
+ BLUE WRAP
+ ***************************************************************************************************************** -->
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3>About.</h3>
+        </div><!-- /row -->
+    </div> <!-- /container -->
+</div><!-- /blue -->
+
+
+<!-- *****************************************************************************************************************
+ AGENCY ABOUT
+ ***************************************************************************************************************** -->
+
+ <div class="container mtb">
+    <div class="row">
+        <div class="col-lg-6">
+            <img class="img-responsive" src="{% static 'employee/images/agency.jpg' %}" alt="">
+        </div>
+
+        <div class="col-lg-6">
+            <h4>More About Our Project.</h4>
+            <p> The attendance tracking using traditional approach is really a cumbersome process. The individual has to maintain the attendance record in registers and files using pen and paper. The problem with this approach is that it requires lots of paper which are the part of our non-renewable natural resources. We are in the age, where we have to think about sustainable development.  So, we also tried to bring the system which enables parent to receive the information of their ward of regularity on daily basis. </p>
+            <p>Managing the attendance using mobile phones, provide an alternative way in this direction. The project emphasize on the development of a standalone system that can track the attendance of the students with the help of Wi-Fi.Communication between teachers and the parent is also an important issue that should also be considered, because parent can only get the information about their ward after the interaction with teachers.</p>
+            <p>You can view all pages from the dashboard. You'll be shown the dashboard every time the app runs. </p>
+
+        </div>
+    </div><! --/row -->
+ </div><! --/container -->
+
+
+
+    </div><! --/row -->
+ </div><! --/container -->
+ {% endblock%}

@@ -1,0 +1,70 @@
+{% extends 'employee/dashboardbase.html' %}
+
+
+    {%block title%} {% endblock %}
+
+
+            <li {%block index%} {% endblock %}><a href="{% url 'employee:home' %}">HOME</a></li>
+            <li {%block about%} {% endblock %}><a href="{% url 'employee:about' %}">ABOUT</a></li>
+
+	{% block body%}
+        <div id="page-wrapper">
+
+            <div class="allgreen"></div>
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+
+                <h1 style="color:#FFFFFF; font-size: 42px;">
+                    DASHBOARD.
+                </h1>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                              <i class="fa fa-table" aria-hidden="true"></i> TABLE.
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {% for emp in allemp %}
+                                <h2>{{ emp.name }}</h2>
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <td>Date</td>
+                                        <td>Minutes</td>
+                                      </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for time in empmin %}
+                                        {%  if time.eid_id == emp.id %}
+                                          <tr>
+                                            <td>{{ time.date }}</td>
+                                            <td>{{ time.minutes }} Mins.</td>
+                                          </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </tbody>
+                                  </table>
+                            {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+
+	{% endblock%}
+
+

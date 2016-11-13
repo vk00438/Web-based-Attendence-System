@@ -1,0 +1,59 @@
+{% extends 'employee/dashboardbase.html' %}
+
+
+    {%block title%} {% endblock %}
+
+
+            <li {%block index%} {% endblock %}><a href="{% url 'employee:home' %}">HOME</a></li>
+            <li {%block about%} {% endblock %}><a href="{% url 'employee:about' %}">ABOUT</a></li>
+
+	{% block body%}
+        <div id="page-wrapper">
+
+            <div class="allgreen"></div>
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+
+                <h1 style="color:#FFFFFF; font-size: 42px;">
+                    SETTINGS.
+                </h1>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                             <i class="fa fa-key" aria-hidden="true"></i> CHANGE PASSWORD.
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">content Graph</div>
+                      </div>
+                    </div>
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                              <i class="fa fa-laptop" aria-hidden="true"></i> ADD DEVICES.
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">content  Table</div>
+                      </div>
+                    </div>
+                  </div>
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+
+	{% endblock%}
+
+
