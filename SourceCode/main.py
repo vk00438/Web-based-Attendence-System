@@ -34,7 +34,7 @@ def printmac():
     print (mac_time)
 
 #fill minutes in range
-for i in range(1):
+for i in range(2):
     count()
     printmac()
 

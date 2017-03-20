@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <!-- Loading Path to static Files -->
     {% load staticfiles %}
+    <script src="{% static 'employee/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
 
+         $.get('/ajax/', function(file) {
+             data1=file;
+         });
+
+         google.load("visualization", "1", {packages:["corechart"], callback: drawChart});
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(data1["data"]);
+            var options = {
+              title : 'Last Week Attendence ',
+              vAxis: {title: 'Minutes'},
+              hAxis: {title: 'Date'},
+              seriesType: 'bars',
+              series: {1: {type: 'line'}}
+        };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart'));
+            chart.draw(data, options);
+        }
+
+       </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,13 +99,13 @@
 	{% block body%}
 
 	{% endblock%}
-
+     <div id="chart" style="width: 80%; height: 400px;"></div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
     <script src="{% static 'employee/js/bootstrap.min.js' %}"></script>
 	<script src="{% static 'employee/js/retina-1.1.0.js' %}"></script>
 	<script src="{% static 'employee/js/jquery.hoverdir.js' %}"></script>
@@ -93,7 +116,6 @@
   	<script src="{% static 'employee/js/main.js' %}"></script>
 
   	{% block script %}{% endblock %}
-
   </body>
 
 

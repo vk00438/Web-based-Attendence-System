@@ -14,4 +14,6 @@ urlpatterns = [
     # for /settings/
     url(r'^settings/$', views.settings, name='settings'),
 
+    url(r'^ajax/$', views.ajax, name='ajax'),
+    url(r'^header/$', views.showip, name='showip')
 ]

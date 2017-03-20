@@ -42,7 +42,8 @@
 
                                     <tbody>
                                     {% for time in empmin %}
-                                        {%  if time.eid_id == emp.id %}
+                                        <script> console.log({{ time.eid_id }})</script>
+                                        {% if time.eid_id == emp.id %}
                                           <tr>
                                             <td>{{ time.date }}</td>
                                             <td>{{ time.minutes }} Mins.</td>
